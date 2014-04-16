@@ -1,0 +1,71 @@
+h3(style='color:#468BE8') Editing Profile
+hr(style=' color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+br
+div(ng-controller='teacherProfile')
+    div(ng-show="error", class="alert alert-danger alert-dismissable")
+        button(type="button", class="close",data-dismiss="alert",aria-hidden="true") &times;
+        p {{errorMessage}}
+    div(ng-show="success", class="alert alert-danger alert-dismissable")
+        button(type="button", class="close",data-dismiss="alert",aria-hidden="true") &times;
+        p {{successMessage}}
+    form()
+      table(style='width:90%;')
+        tr
+          td(style='padding:15px;') Name
+          td(style='padding:15px; ')
+            input(type='text', ng-model='formData.name',  name='name', placeholder='#{users.name}')
+        tr
+          td(style='padding:15px; ') Contact No.
+          td(style='padding:15px;')
+            input(type='text', name='contact', ng-model='formData.contact', placeholder='#{users.contact}')
+        tr
+          td(style='padding:15px; ') Subject
+          td(style='padding:15px;')
+            select(multiple='',style="width: 11em",ng-model='formData.subject')
+             option(value='English') English
+             option(value='Telugu') Telugu
+             option(value='Hindi') Hindi
+             option(value='Maths') Maths
+             option(value='Science') Science
+             option(value='Social') Social
+         tr
+          td(style='padding:15px;') Classes
+          td(style='padding:15px;')
+            select(multiple='',ng-model='formData.classes', style="width: 11em;")
+             option(value='1 - A') 1 - A
+             option(value='1 - B') 1 - B
+             option(value='2 - A') 2 - A
+             option(value='2 - B') 2 - B
+             option(value='3 - A') 3 - A
+             option(value='3 - B') 3 - B
+             option(value='3 - C') 3 - C
+             option(value='4 - A') 4 - A
+             option(value='4 - B') 4 - B
+             option(value='4 - C') 4 - C
+             option(value='5 - A') 5 - A
+             option(value='5 - B') 5 - B
+             option(value='5 - C') 5 - C
+             option(value='6 - A') 6 - A
+             option(value='6 - B') 6 - B
+             option(value='6 - C') 6 - C
+             option(value='7 - A') 7 - A
+             option(value='7 - B') 7 - B
+             option(value='7 - C') 7 - C
+             option(value='7 - D') 7 - D
+             option(value='8 - A') 8 - A
+             option(value='8 - B') 8 - B
+             option(value='8 - C') 8 - C
+             option(value='8 - D') 8 - D
+             option(value='9 - A') 9 - A
+             option(value='9 - B') 9 - B
+             option(value='9 - C') 9 - C
+             option(value='9 - D') 9 - D
+             option(value='10 - A') 10 - A
+             option(value='10 - B') 10 - B
+             option(value='10 - C') 10 - C
+             option(value='10 - D') 10 - D 
+        tr
+          td(style= 'padding:15px; ')
+          td(style='padding:15px;')
+            input(type='button', ng-click="teachereditprofile()", value='Update')
+        

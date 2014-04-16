@@ -1,0 +1,8 @@
+br
+br
+div
+  each report in doc
+    div(ng-hide='myValue', ng-controller='Syllabus')
+          input(type='checkbox',ng-click='delete();')
+          | #{report.syllabus}
+          hr

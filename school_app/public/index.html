@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="schoolApp">
+  <head>
+    <title>SCHOOL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 
+    <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="./css/style1.css" type="text/css"	/>
+<script src="login.js"></script>
+<script src="angular.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container login">
+		<div class="header">
+			<div class="logo"><a href="#"><img src="./images/logo.png" height="100%" width="100%" alt="" /></a></div><!-- end of logo -->
+		</div><!-- end of header -->
+		
+
+      <form class="form-signin" action="/uservalidation" method="POST">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" name="email" class="form-control" placeholder="Email address" autofocus>
+        <input type="password" name="password" class="form-control" placeholder="Password">
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <!-- <button class="btn btn-lg btn-primary btn-block" type="button" onClick="window.open('home.html','_self');">Sign in</button> -->
+		<input type="submit" ng-click="validation()" value="Sign in"/>
+	  </form>
+
+   
+
+
+
+  </body>
+</html>

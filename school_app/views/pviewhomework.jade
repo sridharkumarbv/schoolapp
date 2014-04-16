@@ -1,0 +1,22 @@
+form(action='/view', method='GET')
+    br
+    .table-responsive
+      br
+      table.table.table-bordered
+        br
+        thead
+          tr
+            th Student Class
+            th Subject
+            th Date
+            th Homework
+        tbody
+         each hmewrk in doc
+          tr
+            td #{hmewrk.sclass} - #{hmewrk.section}
+           
+            td #{hmewrk.subject}
+            td #{hmewrk.Homeworkdate}
+            td #{hmewrk.homework}
+
+

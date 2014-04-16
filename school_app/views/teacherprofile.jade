@@ -1,0 +1,19 @@
+h3(style='color: #468BE8;') My Profile
+hr(style='color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+br
+form
+      table(style='width: 100%; border: 1px solid black; border-collapse: collapse; padding: 15px;')
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Name
+          td(style='padding: 15px; border: 1px solid black;') #{users.name}
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Contact No.
+          td(style='padding: 15px; border: 1px solid black;') #{users.contact} 
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Subject
+          td(style='padding: 15px; border: 1px solid black;') #{users.subject[0]}  #{users.subject[1]} #{users.subject[2]} #{users.subject[3]} #{users.subject[4]} #{users.subject[5]} #{users.subject[6]} 
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Classes
+          td(style='padding: 15px; border: 1px solid black;') #{users.classes[0]}  #{users.classes[1]} #{users.classes[2]} #{users.classes[3]} #{users.classes[4]} #{users.classes[5]} #{users.classes[6]} #{users.classes[7]} #{users.classes[8]} #{users.classes[9]} #{users.classes[10]} 
+br
+a(href='#teachereditprofile', style="float: right;") Edit Profile

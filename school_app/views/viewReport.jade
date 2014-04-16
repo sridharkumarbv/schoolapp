@@ -1,0 +1,22 @@
+form(action='/view', method='GET')
+    br
+    .table-responsive
+      br
+      table.table.table-bordered
+        br
+        thead
+          tr
+            th Student Class
+            th Roll Number
+            th Subject
+            th Month
+            th View Report
+        tbody
+         each report in doc
+          tr
+            td #{report.sclass} - #{report.section}
+            td #{report.students}
+            td #{report.subject}
+            td #{report.month}
+            td #{report.report}
+

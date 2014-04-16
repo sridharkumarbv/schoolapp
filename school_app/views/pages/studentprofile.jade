@@ -1,0 +1,31 @@
+html
+  head
+  body
+    h3(style='color: #468BE8;') Student Profile
+    hr(style='color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+    br
+    form(action='/studentprofile', method='GET')
+      table(style='width: 100%; border: 1px solid black; border-collapse: collapse; padding: 15px;')
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Name
+          td(style='padding: 15px; border: 1px solid black;') #{student.studentname}
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Roll No.
+          td(style='padding: 15px; border: 1px solid black;') #{student.studentid}
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Class
+          td(style='padding: 15px; border: 1px solid black;') #{student.studentclass}
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Section
+          td(style='padding: 15px; border: 1px solid black;') #{student.section}
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Age.
+          td(style='padding: 15px; border: 1px solid black;') #{student.age}
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Father's Name
+          td(style='padding: 15px; border: 1px solid black;') #{student.fathername}
+        tr
+          td(style='padding: 15px; border: 1px solid black;') Contact No.
+          td(style='padding: 15px; border: 1px solid black;') #{student.contactnumber}
+    br
+    a(href='#studenteditprofile') Edit Profile

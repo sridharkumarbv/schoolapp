@@ -1,0 +1,48 @@
+h3(style='color: #468BE8;') Homework
+hr(style='color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+br
+div(ng-controller='Homework')
+    nav.navbar.navbar-default
+      form.search-box(role='form')
+        .row.input-row
+          br
+          .col-xs-3(style='padding-left:30px;')
+            select.form-control(ng-init="formData.classname=Classes[0]" , ng-model='formData.classname', ng-change='getSelectedClass()', ng-options='class.Name for class in Classes')
+          .col-xs-3
+            select.form-control(ng-model='formData.section',ng-init="formData.section=Classes[0].Sections[0]", ng-change='getSelectedSection()', ng-options='section.Name for section in formData.classname.Sections')
+          .col-xs-3
+            select.form-control(ng-init="formData.subject=Classes[0].Subjects[0]", ng-model='formData.subject', ng-change='getSelectedSubject()', ng-options='subject.Name for subject in formData.classname.Subjects')
+          div
+            input#cal(type='date', placeholder='DD/MM/YYYY', ng-init='formData.Homeworkdate=cal_dates[current_date]',  ng-model='formData.Homeworkdate', name='Homeworkdate') 
+          br
+          br
+          br
+          br
+        div(style='padding-left:0px;')
+           div(style='', id='homeworkView')
+            div(class='col-xs-3', align='left')
+             input.btn.btn-default(type='button',id="generateHomework" value='Add Homework')
+            div(class='col-xs-3', style='padding-left:20px;')
+             input.btn.btn-default(type='button',id="viewhomework" value='View Homework', ng-click='viewHomework()')
+           #over(style='display:none')
+           #pop(style='display:none')
+            br
+            div(style='padding-left:20px;')
+             textarea(rows='5', cols='50', maxlength='3000', name='homework', ng-model='formData.homework')
+            br
+            br
+            div(style='padding-left:0px;')
+              div(class='col-xs-2', align='center')
+               button.btn.btn-warning(ng-click='clearAddHomework()') CANCEL
+              div(class='col-xs-2', align='center')
+               button.btn.btn-default(ng-click='addHomework()') ADD
+              div(class='col-xs-1', align='center')
+               button#Close.btn.btn-default BACK
+        br
+        hr
+        div(ng-init='viewHomework()')
+        div(id='error', ng-show="error", class="alert alert-danger alert-dismissable")
+          p {{errorMessage}}
+        div(id='success', ng-show="success", class="alert alert-danger alert-dismissable")
+          p {{successMessage}}
+        div( id='viewHomework', ng-show="showHomework" ng-bind-html="homeworkDetails")

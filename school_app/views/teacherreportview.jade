@@ -1,0 +1,8 @@
+form(action='/viewreport', method='GET')
+            each report in reports
+                li Class :#{report.student_class}
+                li Section : #{report.student_section}
+                li Subject : #{report.student_subject}
+                li Month:    #{report.student_month}
+                li Report :#{report.student_report}
+                hr

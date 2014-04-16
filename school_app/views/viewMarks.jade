@@ -1,0 +1,21 @@
+.table-responsive
+      br
+      table.table.table-bordered
+        br
+        thead
+          tr
+            th Student Class
+            th Roll Number
+            th Subject
+            th Month
+            th Marks
+        tbody
+         each mark in doc
+          tr
+            td #{mark.sclass} - #{mark.section}
+            td #{mark.students}
+            td #{mark.subject}
+            td #{mark.month}
+            td #{mark.marks}
+
+              

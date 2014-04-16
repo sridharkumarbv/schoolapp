@@ -1,0 +1,55 @@
+h3(style='color: #468BE8;') Report
+hr(style='color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+br
+div(ng-controller='Report')
+    nav.navbar.navbar-default
+      form.search-box(role='form')
+        .row.input-row
+          br
+          .col-xs-4(style='padding-left:30px;')
+            select.form-control(ng-init="formData.classname=Classes[0]" , ng-model='formData.classname', ng-change='getSelectedClass()', ng-options='class.Name for class in Classes')
+          .col-xs-4
+            select.form-control(ng-init="formData.subject=Classes[0].Subjects[0]", ng-model='formData.subject', ng-change='getSelectedSubject()', ng-options='subject.Name for subject in formData.classname.Subjects')
+          .col-xs-4
+            select.form-control(ng-init='searchForm.month=cal_months[current_month]', ng-model='searchForm.month', ng-options='month for month in cal_months')
+          br
+          br
+          br
+          br
+        div(style='padding-left:0px;')
+           div(style='',id='reportView')
+            div(class='col-xs-3',style='padding-left:20px;')
+             input.btn.btn-default(type='submit',id="generateReport" value='Add Report')
+            div(class='col-xs-3',style='padding:0px;')
+             input.btn.btn-default(type='submit',id="viewreport" value='View Report', ng-click='viewReport()')
+           #over(style='display:none')
+           #pop(style='display:none')
+            div(style='padding-left:0px;')
+            .col-xs-4
+              select.form-control(ng-model='formData.section',ng-init="formData.section=Classes[0].Sections[0]", ng-change='getSelectedSection()', ng-options='section.Name for section in formData.classname.Sections')
+            .col-xs-4
+              select.form-control(ng-model='formData.students',ng-init="formData.students=Classes[0].Students[0]", ng-change='getSelectedStudent()', ng-options='student.Name for student in formData.classname.Students')
+            br
+            br
+            br
+            br
+            div(style='padding-left:20px;')
+            
+             textarea(rows='5', cols='50', maxlength='3000', name='report', ng-model='formData.text')
+            br
+            br
+            div(style='padding-left:0px;')
+              div(class='col-xs-2', align='center')
+               button.btn.btn-warning(ng-click='clearAddReport()') CANCEL
+              div(class='col-xs-2', align='center')
+               button.btn.btn-default(ng-click='addReport()') ADD
+              div(class='col-xs-1', align='center')
+               button#Close.btn.btn-default BACK
+        br
+        hr
+        div(ng-init='viewReport()')
+        div(id='error', ng-show="error", class="alert alert-danger alert-dismissable")
+          p {{errorMessage}}
+        div(id='success', ng-show="success", class="alert alert-danger alert-dismissable")
+          p {{successMessage}}
+        div( id='viewReport', ng-show="showReport" ng-bind-html="reportDetails")

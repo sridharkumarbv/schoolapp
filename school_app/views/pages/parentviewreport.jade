@@ -1,0 +1,46 @@
+html(ng-app='schoolApp')
+  head
+    script(src='angular.min.js')
+  body
+    h3(style='color: #468BE8;') REPORT
+    hr(style='color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+    br
+    div(ng-controller='parent')
+      nav.navbar.navbar-default
+        form.search-box(validate)
+          .row.input-row
+            br
+            .col-xs-3(style='padding-left:20px;')
+              select.form-control(ng-model='formData.subject', name='subject')
+                option(value='English') English
+                option(value='Telugu') Telugu
+                option(value='Hindi') Hindi
+                option(value='Maths') Maths
+                option(value='Science') Science
+                option(value='Social') Social
+            .col-xs-3(style='padding-left:10px;')
+              select.form-control(ng-init="searchForm.month=cal_months[current_month]", ng-model='searchForm.month', name='month')
+                option(value='January') January
+                option(value='February') February
+                option(value='March') March
+                option(value='April') April
+                option(value='May') May
+                option(value='June') June
+                option(value='July') July
+                option(value='August') August
+                option(value='September') September
+                option(value='October') October
+                option(value='November') November
+                option(value='December') December
+
+            div(style='padding-left:30px;')
+              input.btn.btn-default(value='View Report', ng-click="parentviewreport()")
+              br
+              br
+    hr
+    div( ng-init="parentviewreport()")
+    div(ng-show="error", class="alert alert-danger alert-dismissable")
+        button(type="button", class="close",data-dismiss="alert",aria-hidden="true") &times;
+        p {{errorMessage}}
+
+    div(id='parentviewreport' ng-show="showReport" ng-bind-html="reportDetails")

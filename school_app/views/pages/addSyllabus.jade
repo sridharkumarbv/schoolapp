@@ -1,0 +1,37 @@
+h3(style='color: #468BE8;')  Add Syllabus
+hr(style='color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+br
+div(ng-controller='Syllabus')
+  div(ng-show="error", class="alert alert-danger alert-dismissable")
+    button(type="button", class="close",data-dismiss="alert",aria-hidden="true") &times;
+    p {{errorMessage}}
+  div(ng-show="success", class="alert alert-danger alert-dismissable")
+    button(type="button", class="close",data-dismiss="alert",aria-hidden="true") &times;
+    p {{successMessage}}
+     a(href="#syllabus", rel="nofollow") Click to view Syllabus
+  nav.navbar.navbar-default
+    form.search-box(validate)
+      .row.input-row
+        br
+        .col-xs-3(style='padding-left:20px;')
+          select.form-control(ng-model='formData.classname',ng-init="formData.classname=Classes[0]" , ng-options='class.Name for class in Classes')
+        .col-xs-3
+          select.form-control(ng-model='formData.subject',ng-init="formData.subject=Classes[0].Subjects[0]",  ng-options='subject.Name for subject in formData.classname.Subjects')
+         .col-xs-3
+          select.form-control(ng-init="searchForm.month=cal_months[current_month]", ng-model='searchForm.month', ng-options='month for month in cal_months')
+        br
+        br
+        br
+        br
+        #todo-list.row
+          .col-sm-4.col-sm-offset-4
+            .checkbox(ng-repeat='todo in todos')
+              label 
+        div(style='padding-left:20px;')
+          textarea(rows='5', cols='50', maxlength='3000',name="syllabus", ng-model='formData.text')
+          br
+          br
+        div(style='padding-left:20px;')
+            button.btn.btn-warning(ng-click='clearAddSyllabus()') CANCEL
+            button.btn.btn-default(ng-click='addSyllabus()') ADD
+            br

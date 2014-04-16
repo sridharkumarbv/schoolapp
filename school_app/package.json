@@ -1,0 +1,12 @@
+{
+  "name" : "first",
+  "version" : "0.0.0",
+  "description" : "Simple school application.",
+  "main" : "server.js",
+    "dependencies" : {
+    "express" : "~3.4.4",
+    "mongoose" : "~3.6.2",
+	"jade":"*",
+	"ejs":"*"
+  }
+}

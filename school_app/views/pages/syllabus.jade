@@ -1,0 +1,34 @@
+h3(style='color: #468BE8;') Syllabus
+hr(style='color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+br
+div(ng-controller='Syllabus')
+  nav.navbar.navbar-default
+    form.search-box(role='form')
+      .row.input-row
+        br
+        .col-xs-3(style='padding-left:30px;')
+          select.form-control(ng-model='formData.classname',ng-init="formData.classname=Classes[0]" , ng-change='getSelectedClass()', ng-options='class.Name for class in Classes')
+        .col-xs-3
+          select.form-control(ng-model='formData.subject',ng-init="formData.subject=Classes[0].Subjects[1]", ng-change='getSelectedSubject()', ng-options='subject.Name for subject in formData.classname.Subjects')
+        .col-xs-3
+          select.form-control(ng-init="searchForm.month=cal_months[current_month]", ng-model='searchForm.month', ng-options='month for month in cal_months')
+        br
+        br
+        br
+        br
+        div(style='padding-left:20px;')
+          .col-xs-2
+            input.btn.btn-default(type='button', value='View Syllabus', ng-click="viewSyllabus()")
+          .col-xs-2
+            a(href='#addSyllabus', style='padding:20px;')
+              input.btn.btn-default(type='button', value='Add Syllabus')
+          br
+          br
+          p 
+  hr
+  div( ng-init="viewSyllabus()")
+  div(ng-show="error", class="alert alert-danger alert-dismissable")
+    button(type="button", class="close",data-dismiss="alert",aria-hidden="true") &times;
+    p {{errorMessage}}
+
+  div(id='viewSyllabus' ng-show="showSyllabus" ng-bind-html="syllabusDetails" )

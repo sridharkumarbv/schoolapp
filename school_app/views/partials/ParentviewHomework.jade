@@ -1,0 +1,23 @@
+h3(style='color: #468BE8;') HOMEWORK
+hr(style='color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+br
+div(ng-controller='parentHomework')
+  nav.navbar.navbar-default
+        form.search-box(role='form')
+          .row.input-row
+            br
+            .col-xs-3(style='padding-left:20px;')
+              select.form-control(ng-model='formData.subject',ng-init ='formData.subject=Classes[1].Subjects[0]', ng-options='subject.Name for subject in Classes[1].Subjects')
+            .col-xs-3(style='padding-left:10px;')
+              input#cal(type='date', placeholder='DD/MM/YYYY', ng-init='formData.Homeworkdate=cal_dates[current_date]',  ng-model='formData.Homeworkdate', name='Homeworkdate')
+            div(style='padding-left:30px;')
+              button.btn.btn-default(type='button', ng-click="ParentHomework()") View HomeWork
+              br
+              br
+  hr
+  div(ng-init="ParentHomework()")
+  div(ng-show="error", class="alert alert-danger alert-dismissable")
+    
+    p {{errorMessage}}
+
+  div(id='pviewhomework' ng-show="showhomework" ng-bind-html="homeworkDetails")

@@ -1,0 +1,74 @@
+doctype html
+html(ng-app='schoolApp')
+  head
+    title HOME
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    //
+       Bootstrap 
+          <link href="css/bootstrap.min.css" rel="stylesheet"> 
+    link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/style.css', type='text/css')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js')
+    script(src='test.js')
+    script(src='/js/teacher/script.js')
+    script(src='/js/teacher/Report.js')
+    script(src='/js/teacher/syllabus.js')
+    script(src='/js/changepassword.js')
+    script(src='/js/teacher/marks.js')
+    script(src='/js/teacher/homework.js')
+    script(src='/js/teacher/teacher profile.js')
+  body(ng-controller='mainController')
+    .container
+      .row.row-offcanvas.row-offcanvas-right
+        .top-row
+          .top-nav
+            ol.breadcrumb
+              li
+                a(href='#') My Home
+                .select
+              li You are logged in as #{login}
+              li
+                a(href='#changepassword') Change Password
+              li
+                a(href='index.html') Logout
+            // end of breadcrumb
+          // end of top-nav
+        // end of top-row
+        .banner
+          img(src='images/header.jpg', alt='')
+        // end of banner
+        .col-xs-6.col-sm-3.sidebar-offcanvas(role='navigation')
+          .list-group
+            .list-group-item.nav-hding My Menu
+            a.list-group-item(href='#')
+              span.menu-icon.i-student-info
+              | My Profile
+            a.list-group-item(href='#syllabus')
+              span.menu-icon.i-publication-small
+              | Syllabus
+            a.list-group-item(href='#report')
+              span.menu-icon.i-attendance
+              | Report
+            a.list-group-item(href='#Homework')
+              span.menu-icon.i-fees
+              | Homework
+            a.list-group-item(href='#mark')
+              span.menu-icon.i-fee-invoice
+              | Marks
+
+        .col-xs-12.col-sm-9.cust-style(style='background-color: white;')
+          // <div class="home">
+          #main
+            // {{message}}
+            // angular templating
+            // this is where content will be injected
+            div(ng-view='ng-view')
+        // </div>
+      // end of row row-offcanvas row-offcanvas-right
+      .row
+        .footer
+          | Powered by Value Labs
+    // end of container

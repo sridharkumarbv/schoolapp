@@ -1,0 +1,24 @@
+h3(style='color: #468BE8;') MARKS
+hr(style='color: #666; background-color: #FFF; border: 1px dashed black; border-style: none none dashed;')
+br
+div(ng-controller='parentMarks')
+  nav.navbar.navbar-default
+        form.search-box(role='form')
+          .row.input-row
+            br
+            .col-xs-3(style='padding-left:20px;')
+              select.form-control(ng-model='formData.subject',ng-init ='formData.subject=Classes[1].Subjects[0]', ng-options='subject.Name for subject in Classes[1].Subjects')
+            .col-xs-3(style='padding-left:10px;')
+              select.form-control(ng-init="searchForm.month=cal_months[current_month]", ng-model='searchForm.month', ng-options='month for month in cal_months')
+
+            div(style='padding-left:30px;')
+              button.btn.btn-default(type='button', ng-click="ParentviewMarks()") View Marks
+              br
+              br
+  hr
+  div(ng-init="ParentviewMarks()")
+  div(ng-show="error", class="alert alert-danger alert-dismissable")
+    
+    p {{errorMessage}}
+
+  div(id='pviewmark' ng-show="showmarks" ng-bind-html="marksDetails")
